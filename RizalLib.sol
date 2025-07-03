@@ -102,7 +102,8 @@ contract RizalLib {
      * @param _student The address of the student to add
      */ 
     function addStudent(address _student) public isLibrarian {
-        
+        require(_student != librarian, "Librarian cannot be a student.");
+
         // This is done in the code for ease of checking 
         require (
             students[_student].idNumber == 0, 
